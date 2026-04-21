@@ -8,6 +8,12 @@
     border: none;
 }
 
+/* 🔥 IMPORTANT: SCROLL FIX */
+.cart-items {
+    width: 100%;
+    overflow-x: auto;
+}
+
 /* ✅ HEADER GRID */
 .cart-items-title {
     display: grid;
@@ -16,6 +22,7 @@
     color: grey;
     font-size: max(1vw, 12px);
     text-align: center;
+    min-width: 600px; /* 🔥 KEY FIX */
 }
 
 /* ✅ ITEM ROW GRID */
@@ -26,6 +33,7 @@
     margin: 12px 0px;
     color: black;
     text-align: center;
+    min-width: 600px; /* 🔥 KEY FIX */
 }
 
 /* ✅ IMAGE FIX */
@@ -166,29 +174,19 @@
     color: #2ecc71;
 }
 
-/* 📱 RESPONSIVE FIX */
+/* 📱 RESPONSIVE */
 @media (max-width: 750px) {
 
-    /* ✅ KEEP HEADER VISIBLE */
-    .cart-items-title {
-        display: grid;
-        grid-template-columns: 60px 1fr 60px 100px 60px;
-        font-size: 11px;
-    }
-
-    /* ✅ STACK ITEMS NICELY */
+    /* KEEP GRID SAME → allow scroll instead */
+    .cart-items-title,
     .cart-items-item {
-        grid-template-columns: 60px 1fr 60px 100px 60px;
+        min-width: 600px;
         font-size: 12px;
     }
 
     .cart-items-item img {
         width: 50px;
         height: 50px;
-    }
-
-    .cart-quantity-control {
-        justify-content: center;
     }
 
     .cart-bottom {
