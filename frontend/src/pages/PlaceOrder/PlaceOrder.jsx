@@ -59,10 +59,9 @@ const isMobile = () => {
     orderNumber: verify.data.orderNumber,
     message: verify.data.message
   });
-} // ✅ Pass orderId to callback
-          } else {
-            setPaymentStatus('failed');
-          }
+} else {
+  setPaymentStatus('failed');
+}
         } catch (err) {
           console.error(err);
           setPaymentStatus('error');
