@@ -285,12 +285,8 @@ export const markPrepared = async (req, res) => {
 
 export const markDelivered = async (req, res) => {
   await orderModel.findByIdAndUpdate(req.body.orderId, { status: "delivered" });
-  return res.json({
-  success: true,
-  message: "Order placed successfully 🎉",
-  orderId: order._id,
-  orderNumber: order.orderNumber
-});
+  res.json({ success: true });
+};
 
 /* ================= 🔥 NEW STATUS ENDPOINT ================= */
 export const getOrderStatus = async (req, res) => {
