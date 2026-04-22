@@ -345,11 +345,15 @@ const PlaceOrder = () => {
         buildOrderItems(),
         token,
         setPaymentStatus,
-        (realOrderId) => {
-          setCurrentOrderId(realOrderId);
-          localStorage.setItem("activeOrderId", realOrderId);
-          setPaymentStatus('processing');
-        }
+        (orderData) => {
+  setCurrentOrderId(orderData.orderId);
+  localStorage.setItem("activeOrderId", orderData.orderId);
+
+  // 🔥 SHOW INSTANT NOTIFICATION
+  alert(`🎉 ${orderData.message}\nOrder No: ${orderData.orderNumber}`);
+
+  setPaymentStatus('processing');
+}
       );
     } catch (error) {
       console.error("Payment error:", error);
